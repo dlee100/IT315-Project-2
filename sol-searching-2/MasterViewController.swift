@@ -12,10 +12,15 @@ class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
     var objects = [Any]()
-
+    var solObjArray = [SolInfo]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Gets data from the rest end point
+        getRestAPIData()
+        
+        /*
         // Do any additional setup after loading the view.
         navigationItem.leftBarButtonItem = editButtonItem
 
@@ -24,7 +29,7 @@ class MasterViewController: UITableViewController {
         if let split = splitViewController {
             let controllers = split.viewControllers
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
-        }
+        } */
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -32,24 +37,19 @@ class MasterViewController: UITableViewController {
         super.viewWillAppear(animated)
     }
 
-    @objc
-    func insertNewObject(_ sender: Any) {
-        objects.insert(NSDate(), at: 0)
-        let indexPath = IndexPath(row: 0, section: 0)
-        tableView.insertRows(at: [indexPath], with: .automatic)
-    }
 
     // MARK: - Segues
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
+            
             if let indexPath = tableView.indexPathForSelectedRow {
-                let object = objects[indexPath.row] as! NSDate
-                let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-                controller.detailItem = object
-                controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-                controller.navigationItem.leftItemsSupplementBackButton = true
-                detailViewController = controller
+            
+                 let selectedHikingTrail = solObjArray[indexPath.row]
+               
+                 let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
+             
+                 controller.detailViewSolObj = selectedObj
             }
         }
     }
@@ -85,6 +85,64 @@ class MasterViewController: UITableViewController {
         }
     }
 
+    func getRestAPIData(){
+        // Know the end Point.
+        let endPoint:String = "http://www.protogic.com/universityservice/service.svc/AllHikingTrails"
+        
+        let jsURL:URL = URL(string: endPoint)!
+       
+        // 2. Call the Rest End point. by using the Data function
+        let jsonData = try? Data (contentsOf: jsURL)
+        print(jsonData ?? "ERROR: No Data To Print. JSONURLData is Nil")
+        
+        if (jsonData != nil) {
+        
+        //3. Receive the Incoming Data (JSON). In a Local Dictionary object
+        let dictionary:NSDictionary =
+            (try! JSONSerialization.jsonObject(with: jsonData!, options: JSONSerialization.ReadingOptions.mutableContainers)) as! NSDictionary
+        print(dictionary)
+            
+            let solDictionary = dictionary["SolInfo"]! as! [[String:AnyObject]]
+        
+            // 4. Convert Dictionary Object to Individual Hiking Trail Object
+                
+        for index in 0...solDictionary.count - 1 {
+            let singleSol  = solDictionary[index]
+            let sol = SolInfo()
+        
+            sol.ObjectName = singleSol["ObjectName"] as! String
+            sol.ObjectImageName = singleSol["ObjectImageName"] as! String
+            sol.ObjectAU = singleSol["ObjectAU"] as! Double
+            sol.ObjectYear = singleSol["ObjectYear"] as! Int
+            sol.ObjectSite = singleSol["ObjectSite"] as! String
+            sol.ObjectSymbol = singleSol["ObjectSymbol"] as! String
+            sol.ObjectReference = singleSol["ObjectReference"] as! String
+            sol.ObjectDescription = singleSol["ObjectDescription"] as! String
+            
+            // 5. Append it to the Array
+            solObjArray.append(sol)
+            
+            /*
+            ht.TrailName = singleHT["TrailName"] as! String
+            ht.TrailAltitude  = singleHT["TrailElevation"] as! String
+            ht.TrailImageName  = singleHT["TrailImage"] as! String
+        
+            ht.TrailDescription = ""
+            ht.TrailDifficulty = singleHT["TrailDifficulty"] as! String
+            ht.TrailFavorite = false
+            ht.TrailID = singleHT["TrailID"] as! Int
+            ht.TrailSite = singleHT["TrailWebsite"] as! String
+            ht.TrailTime = singleHT["TrailTime"] as! String
+        
+            // 5 Append it to the Array
+            hikingTrailArray.append(ht) */
+    }
 
+            
+            
+            
+        }
+        
+    }
 }
 
