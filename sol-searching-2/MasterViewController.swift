@@ -69,6 +69,7 @@ class MasterViewController: UITableViewController {
         let selectedSolObj = solObjArray[indexPath.row]
         cell.textLabel!.text = selectedSolObj.ObjectName
         cell.imageView?.image = extractImage(named: selectedSolObj.ObjectImageName)
+        
         //let object = objects[indexPath.row] as! NSDate
         //cell.textLabel!.text = object.description
         return cell

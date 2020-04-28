@@ -10,9 +10,15 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
-    // insert IBOutlet imgSol
+    @IBOutlet weak var nameSol: UILabel!
     @IBOutlet weak var imgSol: UIImageView!
+    @IBOutlet weak var descSol: UILabel!
+    @IBOutlet weak var auSol: UILabel!
+    @IBOutlet weak var yearSol: UILabel!
     
+    @IBAction func referencesSol(_ sender: UIButton) {
+        
+    }
     @IBOutlet weak var detailDescriptionLabel: UILabel!
 
 
@@ -30,7 +36,12 @@ class DetailViewController: UIViewController {
         // Do any additional setup after loading the view.
         configureView()
         detailDescriptionLabel.text = detailViewSolObj!.ObjectName
+        nameSol.text = detailViewSolObj!.ObjectName
         imgSol.image = extractImage(named: detailViewSolObj!.ObjectImageName)
+        descSol.text = detailViewSolObj!.ObjectDescription
+        auSol.text = "AU: \(String(detailViewSolObj!.ObjectAU))"
+        yearSol.text = "Year: \(String(detailViewSolObj!.ObjectYear)) Earth days"
+        
     }
     
     // MARK: Custom Functions
@@ -49,16 +60,16 @@ class DetailViewController: UIViewController {
     }
 
     var detailViewSolObj:SolInfo?
-    /*
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "showSubDetail") {
+        if(segue.identifier == "showRefDetail") {
             // find the controller the segue is conencted to
-            let controller = segue.destination as! SubDetailController
+            let controller = segue.destination as! RefDetailController
                // pass the selected Hiking Trail to the controller
-            controller.sdHikingTrail = detailViewHikingTrail!
+            controller.refDetailSolObj = detailViewSolObj!
             
         }
         
-    } */
+    }
 }
 
