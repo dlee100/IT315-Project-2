@@ -15,6 +15,7 @@
 		30A8B2BC245814C20078A94C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30A8B2BB245814C20078A94C /* Assets.xcassets */; };
 		30A8B2BF245814C20078A94C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30A8B2BD245814C20078A94C /* LaunchScreen.storyboard */; };
 		30A8B2C724581AF20078A94C /* sol-objects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A8B2C624581AF20078A94C /* sol-objects.swift */; };
+		30A8B2CB24586BCA0078A94C /* sol-searching-landpage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30A8B2CA24586BCA0078A94C /* sol-searching-landpage.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		30A8B2BE245814C20078A94C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		30A8B2C0245814C20078A94C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30A8B2C624581AF20078A94C /* sol-objects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "sol-objects.swift"; sourceTree = "<group>"; };
+		30A8B2CA24586BCA0078A94C /* sol-searching-landpage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "sol-searching-landpage.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		30A8B2AF245814BE0078A94C /* sol-searching-2 */ = {
 			isa = PBXGroup;
 			children = (
+				30A8B2C624581AF20078A94C /* sol-objects.swift */,
 				30A8B2B0245814BE0078A94C /* AppDelegate.swift */,
 				30A8B2B2245814BE0078A94C /* SceneDelegate.swift */,
 				30A8B2B4245814BE0078A94C /* MasterViewController.swift */,
@@ -67,8 +70,8 @@
 				30A8B2B8245814BE0078A94C /* Main.storyboard */,
 				30A8B2BB245814C20078A94C /* Assets.xcassets */,
 				30A8B2BD245814C20078A94C /* LaunchScreen.storyboard */,
+				30A8B2CA24586BCA0078A94C /* sol-searching-landpage.jpg */,
 				30A8B2C0245814C20078A94C /* Info.plist */,
-				30A8B2C624581AF20078A94C /* sol-objects.swift */,
 			);
 			path = "sol-searching-2";
 			sourceTree = "<group>";
@@ -132,6 +135,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30A8B2BF245814C20078A94C /* LaunchScreen.storyboard in Resources */,
+				30A8B2CB24586BCA0078A94C /* sol-searching-landpage.jpg in Resources */,
 				30A8B2BC245814C20078A94C /* Assets.xcassets in Resources */,
 				30A8B2BA245814BE0078A94C /* Main.storyboard in Resources */,
 			);

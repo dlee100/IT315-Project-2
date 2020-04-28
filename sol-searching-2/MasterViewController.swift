@@ -43,13 +43,13 @@ class MasterViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             
-            if let indexPath = tableView.indexPathForSelectedRow {
+        if let indexPath = tableView.indexPathForSelectedRow {
             
-                 let selectedHikingTrail = solObjArray[indexPath.row]
+                 let selectedSolObj = solObjArray[indexPath.row]
                
                  let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
              
-                 controller.detailViewSolObj = selectedObj
+                 controller.detailViewSolObj = selectedSolObj
             }
         }
     }
@@ -85,9 +85,17 @@ class MasterViewController: UITableViewController {
         }
     }
 
+    // MARK: Custom Functions
+    func extractImage(named:String) -> UIImage {
+        let uri = URL(string: named)
+        let dataBytes = try? Data(contentsOf: uri!)
+        let img = UIImage(data: dataBytes!)
+        return img!
+    }
+    
     func getRestAPIData(){
-        // Know the end Point.
-        let endPoint:String = "http://www.protogic.com/universityservice/service.svc/AllHikingTrails"
+        // Raw JSON file from github
+        let endPoint:String = "https://raw.githubusercontent.com/dlee100/JSON-Sol-Searching/master/db.json"
         
         let jsURL:URL = URL(string: endPoint)!
        
@@ -104,7 +112,7 @@ class MasterViewController: UITableViewController {
             
             let solDictionary = dictionary["SolInfo"]! as! [[String:AnyObject]]
         
-            // 4. Convert Dictionary Object to Individual Hiking Trail Object
+            // 4. Convert Dictionary Object to Individual Sol Object
                 
         for index in 0...solDictionary.count - 1 {
             let singleSol  = solDictionary[index]
