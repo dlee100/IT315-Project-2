@@ -17,6 +17,7 @@
 		30A8B2C724581AF20078A94C /* sol-objects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A8B2C624581AF20078A94C /* sol-objects.swift */; };
 		30A8B2CB24586BCA0078A94C /* sol-searching-landpage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30A8B2CA24586BCA0078A94C /* sol-searching-landpage.jpg */; };
 		30A8B2CF2458B6050078A94C /* RefDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A8B2CE2458B6050078A94C /* RefDetailController.swift */; };
+		30EA4DD82458CEAF00292D94 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30EA4DD72458CEAF00292D94 /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		30A8B2C624581AF20078A94C /* sol-objects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "sol-objects.swift"; sourceTree = "<group>"; };
 		30A8B2CA24586BCA0078A94C /* sol-searching-landpage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "sol-searching-landpage.jpg"; sourceTree = "<group>"; };
 		30A8B2CE2458B6050078A94C /* RefDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefDetailController.swift; sourceTree = "<group>"; };
+		30EA4DD72458CEAF00292D94 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30EA4DD82458CEAF00292D94 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +53,7 @@
 			children = (
 				30A8B2AF245814BE0078A94C /* sol-searching-2 */,
 				30A8B2AE245814BE0078A94C /* Products */,
+				30EA4DD62458CEAF00292D94 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,6 +81,14 @@
 				30A8B2CE2458B6050078A94C /* RefDetailController.swift */,
 			);
 			path = "sol-searching-2";
+			sourceTree = "<group>";
+		};
+		30EA4DD62458CEAF00292D94 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				30EA4DD72458CEAF00292D94 /* WebKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

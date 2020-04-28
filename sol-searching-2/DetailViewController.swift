@@ -35,12 +35,12 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         configureView()
-        detailDescriptionLabel.text = detailViewSolObj!.ObjectName
-        nameSol.text = detailViewSolObj!.ObjectName
-        imgSol.image = extractImage(named: detailViewSolObj!.ObjectImageName)
-        descSol.text = detailViewSolObj!.ObjectDescription
-        auSol.text = "AU: \(String(detailViewSolObj!.ObjectAU))"
-        yearSol.text = "Year: \(String(detailViewSolObj!.ObjectYear)) Earth days"
+        detailDescriptionLabel.text = detailViewSolObj.ObjectName
+        nameSol.text = detailViewSolObj.ObjectName
+        imgSol.image = extractImage(named: detailViewSolObj.ObjectImageName)
+        descSol.text = detailViewSolObj.ObjectDescription
+        auSol.text = "AU: \(String(detailViewSolObj.ObjectAU))"
+        yearSol.text = "Year: \(String(detailViewSolObj.ObjectYear)) Earth days"
         
     }
     
@@ -59,8 +59,8 @@ class DetailViewController: UIViewController {
         }
     }
 
-    var detailViewSolObj:SolInfo?
-    
+    //var detailViewSolObj:SolInfo?
+    /*
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "showRefDetail") {
             // find the controller the segue is conencted to
@@ -70,6 +70,18 @@ class DetailViewController: UIViewController {
             
         }
         
+    } */
+    
+    var detailViewSolObj: SolInfo = SolInfo()
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if(segue.identifier == "showRefDetail") {
+        // find the controller the segue is conencted to
+        let controller = segue.destination as! RefDetailController
+           // pass the selected Hiking Trail to the controller
+        controller.refDetailSolObj = detailViewSolObj
+        
     }
 }
 
+}

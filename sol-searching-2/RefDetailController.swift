@@ -8,18 +8,30 @@
 
 import Foundation
 import UIKit
-class SubDetailController : UIViewController {
+import WebKit
+
+class RefDetailController: UIViewController {
     
+    @IBOutlet weak var webBrowser: WKWebView!
     
+    @IBOutlet weak var nameSol: UILabel!
     
     override func viewDidLoad() {
             super.viewDidLoad()
+            loadWebContent()
             nameSol.text = refDetailSolObj.ObjectName
         }
         
+        
+        func loadWebContent() {
+           
+            let myURL = URL(string:refDetailSolObj.ObjectSite)
+              let myRequest = URLRequest(url: myURL!)
+              webBrowser.load(myRequest)
+            
+        }
         var refDetailSolObj: SolInfo = SolInfo()
-        
-        
+        /*
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "showBrowserDetail") {
             // find the controller the segue is conencted to
@@ -29,5 +41,5 @@ class SubDetailController : UIViewController {
             
         }
         
-    }
+    } */
     }
