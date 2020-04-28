@@ -61,13 +61,16 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return objects.count
+        return solObjArray.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let object = objects[indexPath.row] as! NSDate
-        cell.textLabel!.text = object.description
+        let selectedSolObj = solObjArray[indexPath.row]
+        cell.textLabel!.text = selectedSolObj.ObjectName
+        cell.imageView?.image = extractImage(named: selectedSolObj.ObjectImageName)
+        //let object = objects[indexPath.row] as! NSDate
+        //cell.textLabel!.text = object.description
         return cell
     }
 
@@ -110,7 +113,7 @@ class MasterViewController: UITableViewController {
             (try! JSONSerialization.jsonObject(with: jsonData!, options: JSONSerialization.ReadingOptions.mutableContainers)) as! NSDictionary
         print(dictionary)
             
-            let solDictionary = dictionary["SolInfo"]! as! [[String:AnyObject]]
+            let solDictionary = dictionary["Object"]! as! [[String:AnyObject]]
         
             // 4. Convert Dictionary Object to Individual Sol Object
                 
@@ -119,6 +122,7 @@ class MasterViewController: UITableViewController {
             let sol = SolInfo()
         
             sol.ObjectName = singleSol["ObjectName"] as! String
+            sol.ObjectID = singleSol["ObjectID"] as! Int
             sol.ObjectImageName = singleSol["ObjectImageName"] as! String
             sol.ObjectAU = singleSol["ObjectAU"] as! Double
             sol.ObjectYear = singleSol["ObjectYear"] as! Int

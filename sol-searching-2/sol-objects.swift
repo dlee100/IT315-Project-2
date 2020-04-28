@@ -10,13 +10,14 @@ import Foundation
 class SolInfo{
     
     var ObjectName:String = ""
+    var ObjectID:Int = 0
     var ObjectImageName:String = ""
     var ObjectAU:Double = 0.0
     var ObjectYear:Int = 0
     var ObjectSite:String = ""
     var ObjectSymbol:String = ""
     var ObjectReference:String = ""
-    var ObjectDescription = ""
+    var ObjectDescription:String = ""
     
     
 }
