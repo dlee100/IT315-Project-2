@@ -59,18 +59,6 @@ class DetailViewController: UIViewController {
         }
     }
 
-    //var detailViewSolObj:SolInfo?
-    /*
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "showRefDetail") {
-            // find the controller the segue is conencted to
-            let controller = segue.destination as! RefDetailController
-               // pass the selected Hiking Trail to the controller
-            controller.refDetailSolObj = detailViewSolObj!
-            
-        }
-        
-    } */
     
     var detailViewSolObj: SolInfo = SolInfo()
     

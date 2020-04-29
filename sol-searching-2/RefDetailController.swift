@@ -31,15 +31,5 @@ class RefDetailController: UIViewController {
             
         }
         var refDetailSolObj: SolInfo = SolInfo()
-        /*
-        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "showBrowserDetail") {
-            // find the controller the segue is conencted to
-            let controller = segue.destination as! BrowserDetailController
-               // pass the selected Hiking Trail to the controller
-            controller.browserSolObj = refDetailSolObj
-            
-        }
         
-    } */
     }

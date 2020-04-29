@@ -20,16 +20,7 @@ class MasterViewController: UITableViewController {
         // Gets data from the rest end point
         getRestAPIData()
         
-        /*
-        // Do any additional setup after loading the view.
-        navigationItem.leftBarButtonItem = editButtonItem
-
-        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
-        navigationItem.rightBarButtonItem = addButton
-        if let split = splitViewController {
-            let controllers = split.viewControllers
-            detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
-        } */
+    
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -70,8 +61,7 @@ class MasterViewController: UITableViewController {
         cell.textLabel!.text = selectedSolObj.ObjectName
         cell.imageView?.image = extractImage(named: selectedSolObj.ObjectImageName)
         
-        //let object = objects[indexPath.row] as! NSDate
-        //cell.textLabel!.text = object.description
+        
         return cell
     }
 
@@ -103,7 +93,7 @@ class MasterViewController: UITableViewController {
         
         let jsURL:URL = URL(string: endPoint)!
        
-        // 2. Call the Rest End point. by using the Data function
+        // 2. call rest end point
         let jsonData = try? Data (contentsOf: jsURL)
         print(jsonData ?? "ERROR: No Data To Print. JSONURLData is Nil")
         
@@ -135,20 +125,7 @@ class MasterViewController: UITableViewController {
             // 5. Append it to the Array
             solObjArray.append(sol)
             
-            /*
-            ht.TrailName = singleHT["TrailName"] as! String
-            ht.TrailAltitude  = singleHT["TrailElevation"] as! String
-            ht.TrailImageName  = singleHT["TrailImage"] as! String
-        
-            ht.TrailDescription = ""
-            ht.TrailDifficulty = singleHT["TrailDifficulty"] as! String
-            ht.TrailFavorite = false
-            ht.TrailID = singleHT["TrailID"] as! Int
-            ht.TrailSite = singleHT["TrailWebsite"] as! String
-            ht.TrailTime = singleHT["TrailTime"] as! String
-        
-            // 5 Append it to the Array
-            hikingTrailArray.append(ht) */
+         
     }
 
             
